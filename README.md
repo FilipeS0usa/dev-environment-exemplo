@@ -118,7 +118,7 @@ Aqui iremos mostrar um exemplo de como o ficheiro `devcontainer.json` está estr
 
 **NOTA**: A primeira linha é simplesmente para indicar o caminho onde deve ser escrita a configuração. Ou seja tem de se entrar na directoria `.devcontainer` e escrever no ficheiro `devcontainer.json`. Não é necessário copiar esta linha.
 
-```json
+```
 // path .devcontainer/devcontainer.json
 
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
