@@ -1,0 +1,64 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	// Change to desired devcontainer name
+	"name": "Development Environment",
+	// You can change remoteUser to what ever you want, but be carefull with permissions.
+	"remoteUser": "vscode",
+    "workspaceFolder": "/workbench",
+    "workspaceMount": "source=${localWorkspaceFolder}/,target=/workbench,type=bind,consistency=cached",
+    "mounts": [
+      "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+	// This argument is to put the devcontainer inside a docker network
+	// "runArgs": [
+    // 	"--network=deployment_default",
+	// ],	
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": true,
+			"azureDnsAutoDetection": true,
+			"installDockerBuildx": true,
+			"version": "latest",
+			"dockerDashComposeVersion": "v2"
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"ppa": true,
+			"version": "os-provided"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// Put the commands you want to run inside .scripts/initialization.sh
+	"postCreateCommand": "bash -i .scripts/initialization.sh",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"charliemarsh.ruff"
+			],
+			"settings": {
+				"files.eol": "\n",
+				"editor.defaultFormatter": "charliermarsh.ruff",
+				"python.analysis.autoImportCompletions": true,
+				"[python]": {
+					"editor.formatOnSave": true,
+					"editor.defaultFormatter": "charliermarsh.ruff",
+					"editor.codeActionsOnSave": {
+						"source.fixAll": true,
+						"source.organizeImports.ruff": true
+					}
+				}
+			}
+		}
+	}
+	
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
