@@ -1,6 +1,6 @@
 # Ambiente de Desenvolvimento
 
-author: 2FUR Filipe Silva 144471-K	date: 07/02/2024
+author: Filipe Silva	date: 07/02/2024
 
 **IMPORTANTE LER TODA A INFORMAÇÃO!**
 
